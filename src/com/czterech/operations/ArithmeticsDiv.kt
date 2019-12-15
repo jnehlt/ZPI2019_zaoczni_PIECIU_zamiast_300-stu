@@ -1,10 +1,14 @@
-package com.czterech
+package com.czterech.operations
 
-import com.czterech.Interface.ArithmeticsDiff
+import com.czterech.Interface.ArithmeticsDiv
+import java.util.*
 
-class ArithmeticsDiff : ArithmeticsDiff{
-    override fun diff(x: Double, y: Double) {
-
+class ArithmeticsDiv : ArithmeticsDiv {
+    override fun div(x: Double, y: Double): Double{
+        try{
+            return x / y
+        }catch (e : ArithmeticException){
+            throw Exception("Nie mozna tak dzielic, z powodu ${e.message}")
+        }
     }
-
 }

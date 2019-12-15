@@ -1,5 +1,5 @@
 package com.czterech.Interface
 
-interface ArithmeticsDiff {
-    fun diff(x : Double, y : Double) : Double
+interface ArithmeticsDiv {
+    fun div(x : Double, y : Double) : Double
 }
