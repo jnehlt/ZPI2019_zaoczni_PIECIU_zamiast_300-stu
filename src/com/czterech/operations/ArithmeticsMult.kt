@@ -3,7 +3,6 @@ package com.czterech.operations
 import com.czterech.Interface.ArithmeticsMult
 
 class ArithmeticsMult : ArithmeticsMult {
-    //todo new functionality for arithmetics multiply
     override fun multiplication(x: Double, y: Double): Double {
         try{
             return x * y
