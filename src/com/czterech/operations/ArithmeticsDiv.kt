@@ -1,5 +1,5 @@
 package com.czterech.operations
-
+//piotrl3w was here
 import com.czterech.Interface.ArithmeticsDiv
 import java.util.*
 
@@ -11,5 +11,9 @@ class ArithmeticsDiv : ArithmeticsDiv {
             throw Exception("Nie mozna tak dzielic, z powodu ${e.message}")
         }
     }
+
     //test comment
 }
+
+}
+
