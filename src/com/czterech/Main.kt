@@ -6,6 +6,7 @@ import org.graalvm.compiler.debug.TTY.print
 
 object Main {
 
+    // Czy to faktycznie działa?
     fun main(args: Array<String>) {
         // zmienilem na koltina :DD:D::DD::D::D::D:D:::D
         val multi = ArithmeticsMult()
