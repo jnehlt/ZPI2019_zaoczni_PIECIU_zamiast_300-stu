@@ -1,6 +1,6 @@
 package com.czterech.operations
 
-import com.czterech.Interface.ArithmeticsMult
+import com.czterech.Interface.ArithmeticsDiff
 
 class ArithmeticsDiff : ArithmeticsDiff {
     override fun difference(x: Double, y: Double): Double {
