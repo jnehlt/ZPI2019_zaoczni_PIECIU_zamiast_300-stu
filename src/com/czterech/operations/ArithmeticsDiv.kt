@@ -11,4 +11,9 @@ class ArithmeticsDiv : ArithmeticsDiv {
             throw Exception("Nie mozna tak dzielic, z powodu ${e.message}")
         }
     }
+
+    //test comment
 }
+
+}
+
