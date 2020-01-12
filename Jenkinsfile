@@ -1,10 +1,13 @@
 pipeline {
     agent { label 'master' }
+    triggers {
+        pollSCM('') // Enabling being build on Push
+    }
     stages {
         stage('prepare env') {
             steps {
                 sh '''
-                    kotlinc src/com/czterech/Main.kt -include-runtime -d program.jar
+                    javac src/com/czterech/Main.kt -include-runtime -d program.jar
                 '''
             }
         }
