@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PROJECT_ZPI.iml" filepath="$PROJECT_DIR$/PROJECT_ZPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NBP_Currency.iml" filepath="$PROJECT_DIR$/NBP_Currency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
