@@ -8,6 +8,7 @@ object Main {
 
     fun main(args: Array<String>) {
         // zmienilem na koltina :DD:D::DD::D::D::D:D:::D
+	// jnehlt - commentary functionality 1
         val multi = ArithmeticsMult()
         print("Wynik mnożenia: ${multi.multiplication(2.toDouble(),2.toDouble()).toString()}")
 
