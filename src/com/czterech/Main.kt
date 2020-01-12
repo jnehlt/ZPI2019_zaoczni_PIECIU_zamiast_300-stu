@@ -11,7 +11,7 @@ object Main {
         val multi = ArithmeticsMult()
         print("Wynik mnożenia: ${multi.multiplication(2.toDouble(),2.toDouble()).toString()}")
 
-
+        //added feature from piotrl3w
         val div = ArithmeticsDiv()
         print("Wynik dzielenia: ${div.div(4.toDouble(),2.toDouble()).toString()}")
     }
