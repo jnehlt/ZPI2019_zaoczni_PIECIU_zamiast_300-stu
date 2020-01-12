@@ -1,6 +1,10 @@
 # ZAMIAST 300-stu CZTERECH</br>
 ## Członkowie
-- piotrle3w	SCRUM Master | operations
-- soltys0718	-	tester		
-- RafalKolin -	Developer
-- arsonDev - Developer - 206061
+| AccountName | Function |
+|------------|-----------|
+| piotrle3w  | Developer | 
+| RafalKolin | Developer |
+| arsonDev   | Developer |
+| soltys0718 | Tester    |
+|jnehlt      | SCRUM Master \| operations
+
