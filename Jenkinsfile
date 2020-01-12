@@ -7,7 +7,7 @@ pipeline {
         stage('prepare env') {
             steps {
                 sh '''
-                    javac src/com/czterech/Main.kt -include-runtime -d program.jar
+                    javac -version
                 '''
             }
         }
