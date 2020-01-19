@@ -1,34 +1,66 @@
 package pl.arsonproject.nbp_currency.ui.currencyInfo
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.view.View
+import android.widget.AdapterView
+import androidx.databinding.ObservableDouble
+import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import pl.arsonproject.nbp_currency.repository.ApiFactory
 
+
 class CurrencyInfoViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    val name = ObservableField<String>()
+    val currencyPrice = ObservableDouble()
+    val publicationDate = ObservableField<String>()
 
+    val currencyList = ObservableField<List<String>>()
 
     init {
         viewModelScope.launch {
             try {
-
                 var nbpApi = ApiFactory.nbpApi
-                val response = nbpApi.getCurrencyInfoAsync("a", "chf").await()
+                val response = nbpApi.getAllCurrencyAsync("a").await()
                 if (response.isSuccessful()) {
-                    var a = response.body()
-                    var v = a
+                    var list = arrayListOf<String>()
+                    for (curr in response.body()?.get(0)?.rates!!) {
+                        list.add(curr.code)
+                    }
+                    currencyList.set(list)
                 }
             } catch (e: Exception) {
-                var x = e.message
+                var a = e.message
             }
 
+
         }
+    }
+
+    fun onSelectItem(
+        parent: AdapterView<*>?,
+        view: View?,
+        pos: Int,
+        id: Long
+    ) {
+        currencyChange(parent?.selectedItem.toString())
+    }
+
+    fun currencyChange(currentCurrency: String) {
+        viewModelScope.launch {
+            try {
+                var nbpApi = ApiFactory.nbpApi
+                val response = nbpApi.getCurrencyInfoAsync("a", currentCurrency).await()
+                if (response.isSuccessful()) {
+                    name.set(response.body()?.currency)
+                    currencyPrice.set(response.body()?.rates?.get(0)?.midPrice!!)
+                    publicationDate.set(response.body()?.rates?.get(0)?.effectiveDate!!)
+                }
+            } catch (e: Exception) {
+
+            }
+        }
+
     }
 }
