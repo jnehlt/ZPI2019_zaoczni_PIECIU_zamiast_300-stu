@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.AdapterView
 import androidx.databinding.ObservableDouble
 import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
@@ -15,27 +16,26 @@ class CurrencyInfoViewModel : ViewModel() {
     val name = ObservableField<String>()
     val currencyPrice = ObservableDouble()
     val publicationDate = ObservableField<String>()
-
     val currencyList = ObservableField<List<String>>()
+    val errorMessage = MutableLiveData<String>()
 
     init {
-        viewModelScope.launch {
-            try {
-                var nbpApi = ApiFactory.nbpApi
-                val response = nbpApi.getAllCurrencyAsync("a").await()
-                if (response.isSuccessful()) {
-                    var list = arrayListOf<String>()
-                    for (curr in response.body()?.get(0)?.rates!!) {
-                        list.add(curr.code)
+        if (currencyList.get() == null)
+            viewModelScope.launch {
+                try {
+                    var nbpApi = ApiFactory.nbpApi
+                    val response = nbpApi.getAllCurrencyAsync("a").await()
+                    if (response.isSuccessful()) {
+                        var list = arrayListOf<String>()
+                        for (curr in response.body()?.get(0)?.rates!!) {
+                            list.add(curr.code)
+                        }
+                        currencyList.set(list)
                     }
-                    currencyList.set(list)
+                } catch (e: Exception) {
+                    errorMessage.value = e.message
                 }
-            } catch (e: Exception) {
-                var a = e.message
             }
-
-
-        }
     }
 
     fun onSelectItem(
@@ -58,9 +58,8 @@ class CurrencyInfoViewModel : ViewModel() {
                     publicationDate.set(response.body()?.rates?.get(0)?.effectiveDate!!)
                 }
             } catch (e: Exception) {
-
+                errorMessage.value = e.message
             }
         }
-
     }
 }

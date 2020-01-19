@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import pl.arsonproject.nbp_currency.R
 import pl.arsonproject.nbp_currency.databinding.FragmentCurrencyInfoBinding
@@ -30,6 +32,14 @@ class CurrencyInfoFragment : Fragment() {
         )
         binding.vm = currencyInfoViewModel
 
+        setUI()
+
         return binding.root
+    }
+
+    private fun setUI() {
+        currencyInfoViewModel.errorMessage.observe(this, Observer {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        })
     }
 }
