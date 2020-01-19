@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light">
+    android:background="#4CAF50"
+    >
 
     <TextView
         android:id="@+id/date2_textView"
@@ -15,13 +16,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price2_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/price2_textView"
+        android:textColor="#FFFFFF"/>
 
     <Spinner
         android:id="@+id/currency_spinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="32dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="#a9cfca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:visibility="visible"
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
@@ -44,7 +49,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name1_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/name1_textView"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:id="@+id/price2_textView"
@@ -56,13 +62,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name2_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/name2_textView"
+        android:textColor="#FFFFFF"/>
 
     <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/currency2_spinner"
+        android:layout_width="0dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#a9cfca"
+        app:layout_constraintEnd_toEndOf="@id/currency_spinner"
+        app:layout_constraintStart_toStartOf="@id/currency_spinner"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
@@ -74,7 +84,8 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currency_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/currency_spinner"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:id="@+id/name2_textView"
@@ -86,7 +97,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintTop_toBottomOf="@+id/currency2_spinner"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:id="@+id/date_textView"
@@ -97,5 +109,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price1_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/price1_textView"
+        android:textColor="#FFFFFF"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
