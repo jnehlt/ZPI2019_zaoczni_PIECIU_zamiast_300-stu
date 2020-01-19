@@ -7,7 +7,8 @@ pipeline {
         stage('check env') {
             steps {
                 sh '''
-                    sdk current &&
+                    ls -la &&
+                    pwd &&
                     gradle -v
                 '''
             }
