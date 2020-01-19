@@ -7,7 +7,14 @@ pipeline {
         stage('prepare env') {
             steps {
                 sh '''
-                    javac -version
+                    gradle tasks
+                '''
+            }
+        }
+        stage('build project') {
+            steps {
+                sh '''
+                    gradle build
                 '''
             }
         }
