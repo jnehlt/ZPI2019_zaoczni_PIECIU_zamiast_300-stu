@@ -4,6 +4,13 @@ pipeline {
         pollSCM('') // Enabling being build on Push
     }
     stages {
+        stage('check env') {
+            steps {
+                sh '''
+                    gradle -v
+                '''
+            }
+        }
         stage('prepare env') {
             steps {
                 sh '''
