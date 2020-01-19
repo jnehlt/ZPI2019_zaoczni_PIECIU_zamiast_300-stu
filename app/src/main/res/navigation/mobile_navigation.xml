@@ -3,19 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_currency_info">
 
     <fragment
         android:id="@+id/navigation_currency_info"
         android:name="pl.arsonproject.nbp_currency.ui.currencyInfo.CurrencyInfoFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_currency_info" />
-
-    <fragment
-        android:id="@+id/navigation_currency_change"
-        android:name="pl.arsonproject.nbp_currency.ui.currencyChange.CurrencyChangeFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_currency_change" />
 
     <fragment
         android:id="@+id/navigation_currency_chart"
