@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'master' }
+    agent { label 'android-builder' }
     triggers {
         pollSCM('') // Enabling being build on Push
     }
