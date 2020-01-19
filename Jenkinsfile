@@ -9,21 +9,21 @@ pipeline {
                 sh '''
                     ls -la &&
                     pwd &&
-                    gradle -v
+                    /home/ubuntu/.sdkman/candidates/gradle/current/bin/gradle -v
                 '''
             }
         }
         stage('prepare env') {
             steps {
                 sh '''
-                    gradle tasks
+                    /home/ubuntu/.sdkman/candidates/gradle/current/bin/gradle tasks
                 '''
             }
         }
         stage('build project') {
             steps {
                 sh '''
-                    gradle build
+                    /home/ubuntu/.sdkman/candidates/gradle/current/bin/gradle build
                 '''
             }
         }
