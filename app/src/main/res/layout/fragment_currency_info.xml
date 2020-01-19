@@ -20,6 +20,7 @@
             android:entries="@{vm.currencyList}"
             android:drawSelectorOnTop="true"
             android:spinnerMode="dropdown"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:onItemSelected="@{(parent,view,pos,id)-> vm.onSelectItem(parent,view,pos,id)}"

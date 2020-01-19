@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/navigation_currency_info"
         android:name="pl.arsonproject.nbp_currency.ui.currencyInfo.CurrencyInfoFragment"
-        android:label="@string/title_home"
+        android:label="Waluta"
         tools:layout="@layout/fragment_currency_info" />
 
     <fragment
         android:id="@+id/navigation_currency_chart"
         android:name="pl.arsonproject.nbp_currency.ui.currecnyChart.CurrencyChartFragment"
-        android:label="@string/title_notifications"
+        android:label="Porównanie"
         tools:layout="@layout/fragment_currency_chart" />
 </navigation>
