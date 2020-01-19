@@ -16,7 +16,7 @@ pipeline {
         stage('prepare env') {
             steps {
                 sh '''
-                    /home/ubuntu/.sdkman/candidates/gradle/current/bin/gradle tasks
+                    /home/ubuntu/.sdkman/candidates/gradle/current/bin/gradle tasks --stacktrace
                 '''
             }
         }
