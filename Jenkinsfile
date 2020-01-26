@@ -11,7 +11,7 @@ pipeline {
                     docker pull thyrlian/android-sdk
                     echo "Marking gradlew as executable"
                     chmod +x $(find -type f -name "gradlew")
-                    [[ -d ./.gradle ]] && rm -rf ./.gradle
+                    if [[ -d ./.gradle ]]; then rm -rf ./.gradle; fi
                 '''
             }
         }
