@@ -17,9 +17,14 @@ pipeline {
         stage('build project') {
             steps {
                 sh '''
-                    docker run --privileged --rm -v "$(pwd)":/workdir -w /workdir thyrlian/android-sdk ./gradlew build
+                    docker run --rm -v "$(pwd)":/workdir -w /workdir thyrlian/android-sdk ./gradlew build
                 '''
             }
+        }
+    }
+    post { 
+        always { 
+            cleanWs()
         }
     }
 }
