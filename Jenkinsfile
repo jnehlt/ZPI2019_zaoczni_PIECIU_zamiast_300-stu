@@ -7,10 +7,10 @@ pipeline {
         stage ('prepare environment') {
             steps {
                 sh '''
-                       echo "Downloading docker image with Android SDK"
-                    && docker pull thyrlian/android-sdk
-                    && echo "Marking gradlew as executable"
-                    && chmod +x $(find -type f -name "gradlew")
+                    echo "Downloading docker image with Android SDK"
+                    docker pull thyrlian/android-sdk
+                    echo "Marking gradlew as executable"
+                    chmod +x $(find -type f -name "gradlew")
                 '''
             }
         }
