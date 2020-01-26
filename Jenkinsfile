@@ -11,6 +11,8 @@ pipeline {
                     docker pull thyrlian/android-sdk
                     echo "Marking gradlew as executable"
                     chmod +x $(find -type f -name "gradlew")
+                    echo "clean previous build"
+                    docker run --rm -v "$(pwd)":/workdir -w /workdir --cpus="0.4" --memory="500m" thyrlian/android-sdk ./gradlew clean assembleDebug
                 '''
             }
         }
