@@ -17,7 +17,7 @@ pipeline {
         stage('build project') {
             steps {
                 sh '''
-                    docker run --rm -v "$(pwd)":/workdir -w /workdir --cpus="0.4" --memory="256m" thyrlian/android-sdk ./gradlew build
+                    docker run --rm -v "$(pwd)":/workdir -w /workdir --cpus="0.4" --memory="500m" thyrlian/android-sdk ./gradlew build
                 '''
             }
         }
