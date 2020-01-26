@@ -1,13 +1,20 @@
 pipeline {
-    agent { label 'master' }
+    agent { label 'android-builder' }
     triggers {
-        pollSCM('') // Enabling being build on Push
+        pollSCM('')
     }
     stages {
-        stage('prepare env') {
+        stage ('prepare environment') {
             steps {
                 sh '''
-                    javac -version
+                    docker pull thyrlian/android-sdk
+                '''
+            }
+        }
+        stage('build project') {
+            steps {
+                sh '''
+                    docker run --rm -v "$(pwd)":/workdir -w /workdir thyrlian/android-sdk ./gradlew
                 '''
             }
         }
