@@ -17,6 +17,8 @@ matrix:
           script: ./gradlew test --continue
         - name: "Instrumented Unit Test"
           script: ./gradlew connectedAndroidTest --continue
+        - name: "Build everything"
+          script: ./gradlew build
 
 before_cache:
     - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
