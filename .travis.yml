@@ -1,16 +1,13 @@
 language: android
 dist: trusty
+jdk: oraclejdk11
 android:
     components:
-        - tools
-        - platform-tools
         - build-tools-26.0.1
         - android-26
         - extra
 matrix:
     fast_finish: true
     include:
-        - name: "chech fs"
-          script: "ls -la"
         - name: "chech gradle"
           script: ./gradlew build
