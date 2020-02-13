@@ -14,9 +14,9 @@ matrix:
         - name: "Compile Release Unit Test Sources"
           script: ./gradlew compileReleaseUnitTestSources
         - name: "Local Unit Test"
-          script: ./gradlew test mergeAndroidReports --continue
+          script: ./gradlew test --continue
         - name: "Instrumented Unit Test"
-          script: ./gradlew connectedAndroidTest mergeAndroidReports --continue
+          script: ./gradlew connectedAndroidTest --continue
 
 before_cache:
     - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
