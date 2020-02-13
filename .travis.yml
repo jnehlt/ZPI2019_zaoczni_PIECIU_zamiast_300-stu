@@ -10,4 +10,4 @@ matrix:
     fast_finish: true
     include:
         - name: "chech gradle"
-          script: ./gradlew build
+          script: ./gradlew clean build
