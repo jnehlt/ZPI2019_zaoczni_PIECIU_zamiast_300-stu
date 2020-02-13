@@ -10,5 +10,7 @@ android:
 matrix:
     fast_finish: true
     include:
+        - name: "chech fs"
+          script: "ls -la"
         - name: "chech gradle"
           script: ./gradlew build
