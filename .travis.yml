@@ -15,10 +15,8 @@ matrix:
           script: ./gradlew compileReleaseUnitTestSources
         - name: "Local Unit Test"
           script: ./gradlew test --continue
-        - name: "Instrumented Unit Test"
-          script: ./gradlew connectedAndroidTest --continue
-        - name: "Build everything"
-          script: ./gradlew build
+        - name: "Build an DebugAPK"
+          script: ./gradlew assembleDebug
 
 before_cache:
     - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
