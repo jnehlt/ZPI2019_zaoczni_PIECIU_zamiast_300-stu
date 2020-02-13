@@ -9,7 +9,22 @@ android:
 matrix:
     fast_finish: true
     include:
-        - name: "chech gradle"
-          script: ./gradlew -v
-        - name: "clean build"
-          script: ./gradlew tasks
+        - name: "Compile Release Sources"
+          script: ./gradlew compileReleaseSources
+        - name: "Compile Release Unit Test Sources"
+          script: ./gradlew compileReleaseUnitTestSources
+        - name: "Local Unit Test"
+          script: ./gradlew test mergeAndroidReports --continue
+        - name: "Instrumented Unit Test"
+          script: ./gradlew connectedAndroidTest mergeAndroidReports --continue
+
+before_cache:
+    - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+    - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  
+cache:
+    directories:
+        - .autoconf
+        - $HOME/.m2
+        - $HOME/.gradle/caches/
+        - $HOME/.gradle/wrapper/
