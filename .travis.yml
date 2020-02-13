@@ -15,8 +15,10 @@ matrix:
           script: ./gradlew compileReleaseUnitTestSources
         - name: "Local Unit Test"
           script: ./gradlew test --continue
-        - name: "Build an DebugAPK"
-          script: ./gradlew assembleDebug
+        - name: "Build a DebugAPK"
+          script: 
+            - ./gradlew assembleDebug
+            - find . -type f -name "*.apk"
 
 before_cache:
     - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
