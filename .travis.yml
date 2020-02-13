@@ -3,9 +3,9 @@ dist: trusty
 jdk: oraclejdk8
 android:
     licenses:
-        - 'android-sdk-preview-license-.+'
-        - 'android-sdk-license-.+'
-        - 'google-gdk-license-.+'
+        - 'android-sdk-preview-license-.*'
+        - 'android-sdk-license-.*'
+        - 'google-gdk-license-.*'
     components:
         - build-tools-29.0.2
         - android-29
