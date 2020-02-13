@@ -12,4 +12,4 @@ matrix:
         - name: "chech gradle"
           script: ./gradlew -v
         - name: "clean build"
-          script: ./gradlew clean build
+          script: ./gradlew tasks
