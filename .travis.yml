@@ -3,8 +3,8 @@ dist: trusty
 jdk: oraclejdk8
 android:
     components:
-        - build-tools-29.0.2
-        - android-29
+        - build-tools-26.0.1
+        - android-26
         - extra
 matrix:
     fast_finish: true
