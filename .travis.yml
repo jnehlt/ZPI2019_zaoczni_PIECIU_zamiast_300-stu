@@ -1,0 +1,32 @@
+language: android
+dist: trusty
+jdk: oraclejdk8
+android:
+    components:
+        - build-tools-29.0.2
+        - android-29
+        - extra
+matrix:
+    fast_finish: true
+    include:
+        - name: "Compile Release Sources"
+          script: ./gradlew compileReleaseSources
+        - name: "Compile Release Unit Test Sources"
+          script: ./gradlew compileReleaseUnitTestSources
+        - name: "Local Unit Test"
+          script: ./gradlew test --continue
+        - name: "Build a DebugAPK"
+          script: 
+            - ./gradlew assembleDebug
+            - find . -type f -name "*.apk"
+
+before_cache:
+    - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+    - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  
+cache:
+    directories:
+        - .autoconf
+        - $HOME/.m2
+        - $HOME/.gradle/caches/
+        - $HOME/.gradle/wrapper/
