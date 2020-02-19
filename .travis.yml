@@ -13,7 +13,7 @@ before_deploy:
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
 - git tag
 - env
-- git push -q https://$TAGPERM@github.com/IIS-ZPI/ZPI2019_zaoczni_PIECIU_zamiast_300-stu
+- git push -q https://jnehlt:$TAGPERM@github.com/IIS-ZPI/ZPI2019_zaoczni_PIECIU_zamiast_300-stu
   --tags
 deploy:
   provider: releases
