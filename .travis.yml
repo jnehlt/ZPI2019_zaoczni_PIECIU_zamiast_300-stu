@@ -18,7 +18,9 @@ deploy:
   file: "./*.apk"
   skip_cleanup: true
   on:
-    branch: CI_CD_improvements
+    branch: 
+    - CI_CD_improvements
+    - develop
 matrix:
   fast_finish: true
   include:
