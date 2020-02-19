@@ -6,19 +6,15 @@ before_deploy:
 - git config --global user.name "Travis CI"
 - export GIT_TAG=1.3.$TRAVIS_BUILD_NUMBER
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-# - git tag
-# - env
-# - git push -q https://${TAGPERM}@github.com/jnehlt/ZPI2019_zaoczni_PIECIU_zamiast_300-stu
-#   --tags
 deploy:
   provider: releases
   user: jnehlt
   password:
-    secure: RleNFTgsBpmt5GrcqW3PtfAoEhqvjIdlxz1QaiH7F/+IcN4MDC8jYUfaL5FSMkc0I7GKysV0H4ja217CPElqAaKuQfTocWMCdYkUh4nbwL+TbKeVYBmFKkyVMKYcDaTf0OoW0C1EGUWQqphdj8TtUScFwq1N3mVPxAQOi45uF5H6rvnKmsawOat/4XvUvalfB+Q/H9UWemvyApfPfJyw8wddkE5VATW3Qku8/yoi5aQVnYnqouMnB2TVwIQBufU28YQQ703FVDEkkR9Vp4RNby6uUb8p8o5UJfZt/wdpx5ovunCiW4UQBjoy6QjS/6X4wV5qPuH+LZy4Ox3N3jZyUCfkq8UOk26DFMaK4SIhi5Rfqc+GOyXzJYEwNiXhyteCTYdla90kAGbc5xBRr/GVGnHqeOcsUeJbwa/b7pvUxWCUh4Sb7d1Kcdf022lwwppILe0r2RyXD55AnbmnQNU8Nv0fN/ImErjGZPEev+/dRFv2FQc2vMyheGWoSv4y+azN6dIRmwb2VUGcT8t+uG7hjRVkPEznXVc+CjFrPIoedguLwB0EXjK0cB4TwULaklwo7zX5EQNxPzVn8A7yUdrfhSLpl9EuWiSKADcjoUhVeYDaaMTGHM7vOAYspdjHTJaAgF6IqT3YakqquW5A6XOmaLduUbg+nnEM6apwIDpWXms=
+    secure: IL2CZY4SiTaYaI95NJoMR2QVwTg/gUcfOacUoKX8TeVG+TGgtSsJKgBN8xnvXSZ+1NXy/JengMaH47LnfhjDWKoBfP/qnODFNxMuX3ozTQDlTbX3HX9ZiQJGYbKvan3mw1z+woJ1qIBACgEXp6beZROtRD0oMyAXQkxXAZ3KN/+0Twh3c92i4PgmRNBqPA6Fx9v4DSIHG1opXH/ShQkwsUPpVa2MToqu9sLrZENruhmVG0kSqfTzwy0lIfqmWZMdFN83f8r/Qs6veifDal09Y2g5sWWWIVh/V6GDqvmdbpthJrYplkLh9F8Ry78oi+WL4Xxq9kRxT22rWpAQDdHxKZSD6yyx6KJ0fADRf4QwUzOBobT6x5J70GqVn+SPPm/Gtxv/HpxRH+3fWDX6oQo6bSoq4ar1ZLRiEwHTR0/r/2zBQGmY/SKT2+/faBgmTCVh3ub7rhJmnPiHNx77Fn7bhw2slaTH6o+BFjSEZc3x41SRHbe43n2AHjo7jOD0h7kgjskeWjhGklRGdowXDlJIEepXcGP5sNI/Hr6drksF6D9TO9MSSK8mjK3qFc7/l8m9KdFAlbPjjZB9DqallxMEvS4X7R5rIc9bxESnRMjJVmgVuY7zALbOljk14E+hHsfCfst4B9+gHSRqf86338hvCPxDG6bSQB3s7YqY1lkiNTw=
   file: "./*.apk"
   skip_cleanup: true
   on:
-    branch: 
+    branch:
     - CI_CD_improvements
     - develop
 matrix:
@@ -37,6 +33,3 @@ cache:
   - "$HOME/.m2"
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
-env:
-  global:
-  - secure: SYV+YPWakMuAPtQejqGZLk6x1j5x5LJ3/bq4M7eK/e+FtXBzhiayWIVAE1nBn9WcJbKDzEOY07uKLTPpRwUbIIYp0Ro2dEENLsL/gfbSQazyhI2f7Wz27FKJpCMWXLTdwxtcB1cxJKnzejAdwDbPUIWPsbf8HKTLwo/xSdEsw2xA3u3IEU1n3cUeWQ744xxSi62hwBsZxnbICIk6nyX+IO6O/xwb38deAh9BEyFmuhq7GwgWS4tv56+jJDuiuHkOsFn3sfWHzPoQKCvkO+c1UHLbiEZTHwEtn7S4dSUtKbm8nrx/v3y0jf9A+k98kcSv9WIa/TrMCWdO+j0/SUVWdrebCW50JIlQtypCuE7IksieRwv6yI+VgoHviIocVvES2u3GJXTgc/i7brHyb2JH6i//eizJDepuTD9BvshV0QUhDotsE1cuYS+k+shXWMGHrQ4nRulEpPK3q9rQdZBTHRytJExWYSw3v8llBQXgusFNnEiYKW4OTWbKE8Ef+shENwIMjVGmG/SJxbtzcOW5hBA6ACE0fOwrg8fUJ++r0HtCZoc1CYmozyTuxu4kvj1UWHGDBHsEgoQYlxvG1uihAym1XD3GttI+fm63OEen42j1zJenFzlL9khCroM9MQMLtI4rc3ZkQuPCwu/MF42LhF+n4EMEU8vl/DSLZV6nv+Q=
