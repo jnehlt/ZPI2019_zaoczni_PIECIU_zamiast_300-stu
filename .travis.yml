@@ -10,6 +10,7 @@ deploy:
   provider: releases
   api_key:
     secure: YNCqhXBk6+yCfqX4LoWUOXAoEIiLq+XDVoNOIEVT5UkPTfStD6QHxYhaDghX4ZC4DMpf/npDdFU4SAGacPvn92mPpZ0jk+/nlgIAj6LohimISbXo99vaiNoFQ9Ydw0e2Nq9kRzsqacAkX6ZleLP6pKW7rkXIzK3b23LsZ0WbJzek4X3CwbJrJ1vLNMeRgI0+zSIRiBhvdx5t61gzWiNeW8ylDlSMmbM6nMm3WOs6vfcNG2tJpQG/gafh5YsEhcQH+jlT8+Ki/FBtR2yar1RWwWTTBNuyf/uw+35B90bWV5pcligeMWppjTYVMPeNDuMVZcFMroUyWfukxzXxqNjSYBm85JyfJboXVSDhg2o/54zz71ZHpGhuwjVwrnIbwB3BTcDpsIKwP16fMpn6ZTp71QgKGhtmRZhW8RdhjeBzmBh7082YWmzOh/h+m21B7RxyeUddZSA0/z+b4/iTiDxMADjbD9l3HOqe5bE5b57XR/wr9WBXHZfejUMYVsHc7Ii0ogQp1nZ8TmzfD0/dWvsIz9/XIFJLjpyPuo97BCKIgoOnoWXgqMXbc3wiF1ijdOFIdQNE6R+tiq7RLp5LLQqoRl3leM4y2V4+ssZ2PXsCw5j4Y00y1X0G/dHM6IjWcKe0Efw462av8Gdu8/8p1hqITbJ+FxLg2APhXh58d/zeSuU=
+  file_glob: true
   file: "./*.apk"
   skip_cleanup: true
   on:
