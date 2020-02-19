@@ -3,7 +3,7 @@ dist: trusty
 jdk: oraclejdk8
 env:
   global:
-  - secure: "Vo/vKQEXnh/WPMkGZq5GKFhxXbxgQjGDdXpjxOo5jOVWtqx0VZxafzNU+aLilqWh/l9JzdgUbPS+HAhQwZnnvezKSY6WbbJeB7Q8EuIStHcGIgZUgu/6uuAHn0zIuJlD2c1v0df+DCcE25w/kNHofxztD1MmwRhYrdNMr9LrSd1+jc7/fW18c41IZFOsOyAgivFIenGdBrJbqHF/l+VxkmAjh31DesmK/096kzguytyaI+jHOXsoV3R3yTLJWcsnCH/0oNk3GNnmXFK754ps2OISlol8QkXbRLSmsfEFutflDkSB33gccyqJb5mhox45zVFfqFo23OC0NtfdVrN6TGJ3PaB9cn+0+f6lgQtlGOzCJPs4+x9IQmaKEHxwTGA2VijkJfxV7jAddBHJOntGPFWZiFTSi/iK/3OmdHR+nfb5CxOQAY+hFdxsYIgHBP4odmLqSz3aKxFc+mgwQ+KXgnnfZbKI7tHGD4XmkVmyIn20/f093WFEC2NPNPc+j6NPmsogycmIBhhRz6FRopWSQvOE6969O4gtOBwWV063F3kfxDB+KfEPe0I71D4swD2HPu6OQ5UZuxNCbF2FadVw1SQjLG4/4WnTrr6iGzHkbplNHFl2UUE4QgWBhHscU45qnzfOMLYCKK0Hd4D6V3lTMTpko18czqVJGnc/7mTS5s0="
+  - secure: Vo/vKQEXnh/WPMkGZq5GKFhxXbxgQjGDdXpjxOo5jOVWtqx0VZxafzNU+aLilqWh/l9JzdgUbPS+HAhQwZnnvezKSY6WbbJeB7Q8EuIStHcGIgZUgu/6uuAHn0zIuJlD2c1v0df+DCcE25w/kNHofxztD1MmwRhYrdNMr9LrSd1+jc7/fW18c41IZFOsOyAgivFIenGdBrJbqHF/l+VxkmAjh31DesmK/096kzguytyaI+jHOXsoV3R3yTLJWcsnCH/0oNk3GNnmXFK754ps2OISlol8QkXbRLSmsfEFutflDkSB33gccyqJb5mhox45zVFfqFo23OC0NtfdVrN6TGJ3PaB9cn+0+f6lgQtlGOzCJPs4+x9IQmaKEHxwTGA2VijkJfxV7jAddBHJOntGPFWZiFTSi/iK/3OmdHR+nfb5CxOQAY+hFdxsYIgHBP4odmLqSz3aKxFc+mgwQ+KXgnnfZbKI7tHGD4XmkVmyIn20/f093WFEC2NPNPc+j6NPmsogycmIBhhRz6FRopWSQvOE6969O4gtOBwWV063F3kfxDB+KfEPe0I71D4swD2HPu6OQ5UZuxNCbF2FadVw1SQjLG4/4WnTrr6iGzHkbplNHFl2UUE4QgWBhHscU45qnzfOMLYCKK0Hd4D6V3lTMTpko18czqVJGnc/7mTS5s0=
 android:
   components:
   - build-tools-29.0.2
@@ -14,6 +14,7 @@ before_deploy:
   - git config --global user.name "Travis CI"
   - export GIT_TAG=1.3.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git push -q https://$TAGPERM@github.com/IIS-ZPI/ZPI2019_zaoczni_PIECIU_zamiast_300-stu --tags
 deploy:
   provider: releases
   user: jnehlt
@@ -26,12 +27,12 @@ deploy:
 matrix:
   fast_finish: true
   include:
-  - name: Compile Release Sources
-    script: "./gradlew compileReleaseSources"
-  - name: Compile Release Unit Test Sources
-    script: "./gradlew compileReleaseUnitTestSources"
-  - name: Local Unit Test
-    script: "./gradlew test --continue"
+  # - name: Compile Release Sources
+  #   script: "./gradlew compileReleaseSources"
+  # - name: Compile Release Unit Test Sources
+  #   script: "./gradlew compileReleaseUnitTestSources"
+  # - name: Local Unit Test
+  #   script: "./gradlew test --continue"
   - name: Build a DebugAPK
     script:
     - "./gradlew assembleDebug"
