@@ -1,11 +1,6 @@
 language: android
 dist: trusty
 jdk: oraclejdk8
-# android:
-#   components:
-#   - build-tools-29.0.2
-#   - android-29
-#   - extra
 before_deploy:
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
@@ -13,7 +8,8 @@ before_deploy:
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
 - git tag
 - env
-- git push -q https://${TAGPERM}@github.com/IIS-ZPI/ZPI2019_zaoczni_PIECIU_zamiast_300-stu --tags
+- git push -q https://${TAGPERM}@github.com/IIS-ZPI/ZPI2019_zaoczni_PIECIU_zamiast_300-stu
+  --tags
 deploy:
   provider: releases
   user: jnehlt
@@ -26,20 +22,10 @@ deploy:
 matrix:
   fast_finish: true
   include:
-    - name: DUMMY apk
-      script:
-        - "touch ./test.apk"
-        - "./prepare_apk_name.sh"
-  # - name: Compile Release Sources
-  #   script: "./gradlew compileReleaseSources"
-  # - name: Compile Release Unit Test Sources
-  #   script: "./gradlew compileReleaseUnitTestSources"
-  # - name: Local Unit Test
-  #   script: "./gradlew test --continue"
-  # - name: Build a DebugAPK
-  #   script:
-  #   - "./gradlew assembleDebug"
-  #   - "./prepare_apk_name.sh"
+  - name: DUMMY apk
+    script:
+    - touch ./test.apk
+    - "./prepare_apk_name.sh"
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -49,3 +35,7 @@ cache:
   - "$HOME/.m2"
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
+env:
+  global:
+  - secure: cJ92WRkMLbIk8pxPjSSfNjsZRhyocPGw6rzi7GnCF1lG+be+zo6gHs+oglD1RZA41iQDRzbEwEfUeIubAsX3J+nGbqruhb062RkOSQj2c1OrFhiMwklV9RCAtuLCP6yxFYXhcW7SLGe3+c+RRNP8b7qCVg+UEFLG9cUIPEYRu7YvYYtUJhkkOasn5aSl7bdduXRKr7g62Uxz0pI/o+y3l5jCd64HHYUG2Q53njlluzJexDq7wqsfYoEM+fKDKXhAfOLpyvMhlHnwuGL1vvBvP+iSkbfXYS2f2Fxsi0hd2og5k1sxa/vwltqsQfCAiLYlgc9WaCJGmfcMy6XBQmUcN7VoZA8QHRbP/uoQ0yc41Quk+r2H856XLexFy9vWDXjXNftF+YQWWDmIJMGFPOmEWbrz1OWA4K47A5eVpEu/GgDpFtEuRQjRKAKXBXwo/+0gq7VfB/xOs5qEK+guUvaBapJIn2Md0yoc/WTM2DbDzS8DvY5vyryZ6DTeU2Fta5KQznpFWVFnbjKRryGD99aNlQedbHuTmWd/23jFfEPTDpCwmXAXTRf+vqzhm9AcliDokDR59dbdzdgDj2u+J4jr2MeBdbz0XxAZrprC+bk1H/jr0C3yWe5Z1FvDa0R+RchXeivnxCQ4zExRifz+Fjv+GLPlqiqV97Ep1P1i4Ai8gec=
+  - secure: qehgdUkG6qP7gFHPYg4ANzrUlptfH/3RBNOKs3ZiO3SLNcANxLesX0IZnvUL1Bkvi2i7tP4CPQ39fgjzbkhieagdyQ9M74ExOvR9/BHupvehy4p3yawgYXFJeSgOTvkli/sbTyJH7ZHoUGH3siWRWkG2B5nRqTDVKgKIIvlBEGYz8x2Efu1zmto6hk74wLP+sq36BEmE42pT92UaIhQcfYhBDDAZpgiyKUX8Mxg7qB6cADXbqfPSyQ0l4qip7CBmCLRIcr9jlBBOAgjBx1Qs1cIoNpCd7It9sDfflvQTLklQumBCtZLsJ7z7h4nGTaHKrw5pFKR5YfGd/BouasrEh5VdjlCfhljoJaDpkZN2a1XWXYG8N/L23Z8MWAUnlUJUuc71XXUakRM6uBDPX/pwRx9IjkpWuLUtp6n/XtM5mDlK4JlbdJfxUUANA3askMwVjhG1X21b4iLyxxgC586qOdjSD8hDPDZ0HtTEpfc+b5ALHuvFJ5NHNgaRdgcJU9Zg/VkRAkTRHGqvywYK7Bn4Z6cOfM9Abrvchw9D17a6C0/KwVgsIXvqC3CWPtduwnb1e4+M5wN589W6yruhIxytB/sS9ihiViA30EHMdsuoPUXn/IQPfzUS4g2lc9P2qRh/6vC8gSuGEdCmMTngMmksmedD3lzOhbVEMBUtuYkjqaU=
