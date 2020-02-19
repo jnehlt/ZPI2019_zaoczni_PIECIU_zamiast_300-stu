@@ -1,27 +1,25 @@
 language: android
 dist: trusty
 jdk: oraclejdk8
-env:
-  global:
-    secure: "REBrVlJ8HzcqGhXD3vvpsu0aDJSPkonQlyepJuQJJfOx9fbn29yF2zvbasbD1qN0p2HwdynFUA0I2ydXh7XsMW1GaZgEnOuGmtcWXTgZgzh3d+y0qmsSeOKS7dawa/cxrUPsU5JiAEY/yYhZBDmogqb5jEfGKIr+b3dkFrgYINEOy/7+u4KEUWgBo1trM482Hz6N8uYvb+YQjnf002mR7F/p6IaXtNY8Yjqfy0QNyw30Bf7tOH0aAougauEwM9MppuYDs3qwtmwEY9TyGOMWdSz5jIjAJBg5k/i1gzbmIEto7l7R/F4pv/f18hQzagdyZbb49VyD1CX1zscG6aCyJxWkLYZ+8hGRexWmvAee4cRrK3BF9CtjvV+7E2XjuhqUsDqw1M7LmgcVt1Klgrs5nta6eLTxW6KwXFgEFcmytTDc3T2IC1qqJ3ZGpVvvS6iYSjKvIe78Z7ufgdeysU1hlRRUYalRV9Vw2WhWgtKfKUnQKmq+O+4pzHUuaxWB4qSEh/tNIfqm7Ew4aZMsaAqBEWSzbLSYmjRd/Xmqc+g1L2/DnwSBLESS74EAFIuJTT7PQRoA7QZTZhTet6N1EL+wZGhLiSgtQ/fEN/zKHpmQLzlu7L2NIpSCOFVOHOR58p4Ke6PtNa8UvQGCPjUn2T2nZeGXnIpZfmF6Tl54Bkx4DgQ="
 android:
   components:
   - build-tools-29.0.2
   - android-29
   - extra
 before_deploy:
-  - git config --global user.email "builds@travis-ci.com"
-  - git config --global user.name "Travis CI"
-  - export GIT_TAG=1.3.$TRAVIS_BUILD_NUMBER
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git tag
-  - env
-  - git push -q https://$TAGPERM@github.com/IIS-ZPI/ZPI2019_zaoczni_PIECIU_zamiast_300-stu --tags
+- git config --global user.email "builds@travis-ci.com"
+- git config --global user.name "Travis CI"
+- export GIT_TAG=1.3.$TRAVIS_BUILD_NUMBER
+- git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+- git tag
+- env
+- git push -q https://$TAGPERM@github.com/IIS-ZPI/ZPI2019_zaoczni_PIECIU_zamiast_300-stu
+  --tags
 deploy:
   provider: releases
   user: jnehlt
   password:
-    secure: "RleNFTgsBpmt5GrcqW3PtfAoEhqvjIdlxz1QaiH7F/+IcN4MDC8jYUfaL5FSMkc0I7GKysV0H4ja217CPElqAaKuQfTocWMCdYkUh4nbwL+TbKeVYBmFKkyVMKYcDaTf0OoW0C1EGUWQqphdj8TtUScFwq1N3mVPxAQOi45uF5H6rvnKmsawOat/4XvUvalfB+Q/H9UWemvyApfPfJyw8wddkE5VATW3Qku8/yoi5aQVnYnqouMnB2TVwIQBufU28YQQ703FVDEkkR9Vp4RNby6uUb8p8o5UJfZt/wdpx5ovunCiW4UQBjoy6QjS/6X4wV5qPuH+LZy4Ox3N3jZyUCfkq8UOk26DFMaK4SIhi5Rfqc+GOyXzJYEwNiXhyteCTYdla90kAGbc5xBRr/GVGnHqeOcsUeJbwa/b7pvUxWCUh4Sb7d1Kcdf022lwwppILe0r2RyXD55AnbmnQNU8Nv0fN/ImErjGZPEev+/dRFv2FQc2vMyheGWoSv4y+azN6dIRmwb2VUGcT8t+uG7hjRVkPEznXVc+CjFrPIoedguLwB0EXjK0cB4TwULaklwo7zX5EQNxPzVn8A7yUdrfhSLpl9EuWiSKADcjoUhVeYDaaMTGHM7vOAYspdjHTJaAgF6IqT3YakqquW5A6XOmaLduUbg+nnEM6apwIDpWXms="
+    secure: RleNFTgsBpmt5GrcqW3PtfAoEhqvjIdlxz1QaiH7F/+IcN4MDC8jYUfaL5FSMkc0I7GKysV0H4ja217CPElqAaKuQfTocWMCdYkUh4nbwL+TbKeVYBmFKkyVMKYcDaTf0OoW0C1EGUWQqphdj8TtUScFwq1N3mVPxAQOi45uF5H6rvnKmsawOat/4XvUvalfB+Q/H9UWemvyApfPfJyw8wddkE5VATW3Qku8/yoi5aQVnYnqouMnB2TVwIQBufU28YQQ703FVDEkkR9Vp4RNby6uUb8p8o5UJfZt/wdpx5ovunCiW4UQBjoy6QjS/6X4wV5qPuH+LZy4Ox3N3jZyUCfkq8UOk26DFMaK4SIhi5Rfqc+GOyXzJYEwNiXhyteCTYdla90kAGbc5xBRr/GVGnHqeOcsUeJbwa/b7pvUxWCUh4Sb7d1Kcdf022lwwppILe0r2RyXD55AnbmnQNU8Nv0fN/ImErjGZPEev+/dRFv2FQc2vMyheGWoSv4y+azN6dIRmwb2VUGcT8t+uG7hjRVkPEznXVc+CjFrPIoedguLwB0EXjK0cB4TwULaklwo7zX5EQNxPzVn8A7yUdrfhSLpl9EuWiSKADcjoUhVeYDaaMTGHM7vOAYspdjHTJaAgF6IqT3YakqquW5A6XOmaLduUbg+nnEM6apwIDpWXms=
   file: "./*.apk"
   skip_cleanup: true
   on:
@@ -29,16 +27,20 @@ deploy:
 matrix:
   fast_finish: true
   include:
-  - name: Compile Release Sources
-    script: "./gradlew compileReleaseSources"
-  - name: Compile Release Unit Test Sources
-    script: "./gradlew compileReleaseUnitTestSources"
-  - name: Local Unit Test
-    script: "./gradlew test --continue"
-  - name: Build a DebugAPK
-    script:
-    - "./gradlew assembleDebug"
-    - ./prepare_apk_name.sh
+    - name: DUMMY apk
+      script:
+        - "touch ./test.apk"
+        - "./prepare_apk_name.sh"
+  # - name: Compile Release Sources
+  #   script: "./gradlew compileReleaseSources"
+  # - name: Compile Release Unit Test Sources
+  #   script: "./gradlew compileReleaseUnitTestSources"
+  # - name: Local Unit Test
+  #   script: "./gradlew test --continue"
+  # - name: Build a DebugAPK
+  #   script:
+  #   - "./gradlew assembleDebug"
+  #   - "./prepare_apk_name.sh"
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -48,3 +50,6 @@ cache:
   - "$HOME/.m2"
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
+env:
+  global:
+    secure: Ag3bXXBriqPYpy54JCD/QFF7ljVseUqVYbnEQB+JETZY96Nc487a4Ima0yHGzrlGz1qctARleLPjiNr/U4wdHaxhTmnkH3Aj+XM6O8UWdCRaCKkVDjDnlZxA9Fz7UOjQJ5fZm3yXLrsgiK2FWbxEoOSqL5ZjBPrdid4YOYS8gyYQa9cGXcWsB78QERg+akSpT/M1Lzr2xVSMKfiT8ohK4K9zon/Q0U3S/RX8dWx3U/oECObAewGgXja8DniWal4NpKilLj0w81GstBK1vebkteumaXzYzI78RBDWrDV1hAmL+M1O4CXtEBLLAhS2LXqEn/i/PIqQypqZzheOquqZhfG3FHyVNtTTRP55/4kNIofAfAdAEP2jEvnG5pDAD8Umy1UmhwXNrRhPcmDRo6vaEMkXLNk5I90uxOW7B/+IlcwFPwEq020Q/uWTCAiWQHe19tz2L+weL84TFxJimwE7syIxAaqqb3R9JdbNcr7dwI9vruaPOvjw/HrerK0VdGppcUcgLXOjf4C6wUVHXEwTMgc+oIQlmxJR/G56VuT1xhI0sCO5Ac/3UIW6hIPT05jiKtmyFPAvDZVt7oLMVqNF5KVydWQiCskXzoGqL9t8rPm755KQuMKm59tTVRiWgERZwpkhHOYr/GDKE7jcw4GsUqgFC/Ekxx1RhmjSfNgad6Y=
