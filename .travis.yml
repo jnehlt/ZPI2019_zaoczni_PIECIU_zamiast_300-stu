@@ -1,11 +1,11 @@
 language: android
 dist: trusty
 jdk: oraclejdk8
-android:
-  components:
-  - build-tools-29.0.2
-  - android-29
-  - extra
+# android:
+#   components:
+#   - build-tools-29.0.2
+#   - android-29
+#   - extra
 before_deploy:
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
@@ -50,6 +50,3 @@ cache:
   - "$HOME/.m2"
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
-env:
-  global:
-    secure: Ag3bXXBriqPYpy54JCD/QFF7ljVseUqVYbnEQB+JETZY96Nc487a4Ima0yHGzrlGz1qctARleLPjiNr/U4wdHaxhTmnkH3Aj+XM6O8UWdCRaCKkVDjDnlZxA9Fz7UOjQJ5fZm3yXLrsgiK2FWbxEoOSqL5ZjBPrdid4YOYS8gyYQa9cGXcWsB78QERg+akSpT/M1Lzr2xVSMKfiT8ohK4K9zon/Q0U3S/RX8dWx3U/oECObAewGgXja8DniWal4NpKilLj0w81GstBK1vebkteumaXzYzI78RBDWrDV1hAmL+M1O4CXtEBLLAhS2LXqEn/i/PIqQypqZzheOquqZhfG3FHyVNtTTRP55/4kNIofAfAdAEP2jEvnG5pDAD8Umy1UmhwXNrRhPcmDRo6vaEMkXLNk5I90uxOW7B/+IlcwFPwEq020Q/uWTCAiWQHe19tz2L+weL84TFxJimwE7syIxAaqqb3R9JdbNcr7dwI9vruaPOvjw/HrerK0VdGppcUcgLXOjf4C6wUVHXEwTMgc+oIQlmxJR/G56VuT1xhI0sCO5Ac/3UIW6hIPT05jiKtmyFPAvDZVt7oLMVqNF5KVydWQiCskXzoGqL9t8rPm755KQuMKm59tTVRiWgERZwpkhHOYr/GDKE7jcw4GsUqgFC/Ekxx1RhmjSfNgad6Y=
