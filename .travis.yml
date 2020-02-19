@@ -3,7 +3,7 @@ dist: trusty
 jdk: oraclejdk8
 env:
   global:
-  - secure: "REBrVlJ8HzcqGhXD3vvpsu0aDJSPkonQlyepJuQJJfOx9fbn29yF2zvbasbD1qN0p2HwdynFUA0I2ydXh7XsMW1GaZgEnOuGmtcWXTgZgzh3d+y0qmsSeOKS7dawa/cxrUPsU5JiAEY/yYhZBDmogqb5jEfGKIr+b3dkFrgYINEOy/7+u4KEUWgBo1trM482Hz6N8uYvb+YQjnf002mR7F/p6IaXtNY8Yjqfy0QNyw30Bf7tOH0aAougauEwM9MppuYDs3qwtmwEY9TyGOMWdSz5jIjAJBg5k/i1gzbmIEto7l7R/F4pv/f18hQzagdyZbb49VyD1CX1zscG6aCyJxWkLYZ+8hGRexWmvAee4cRrK3BF9CtjvV+7E2XjuhqUsDqw1M7LmgcVt1Klgrs5nta6eLTxW6KwXFgEFcmytTDc3T2IC1qqJ3ZGpVvvS6iYSjKvIe78Z7ufgdeysU1hlRRUYalRV9Vw2WhWgtKfKUnQKmq+O+4pzHUuaxWB4qSEh/tNIfqm7Ew4aZMsaAqBEWSzbLSYmjRd/Xmqc+g1L2/DnwSBLESS74EAFIuJTT7PQRoA7QZTZhTet6N1EL+wZGhLiSgtQ/fEN/zKHpmQLzlu7L2NIpSCOFVOHOR58p4Ke6PtNa8UvQGCPjUn2T2nZeGXnIpZfmF6Tl54Bkx4DgQ="
+    secure: "REBrVlJ8HzcqGhXD3vvpsu0aDJSPkonQlyepJuQJJfOx9fbn29yF2zvbasbD1qN0p2HwdynFUA0I2ydXh7XsMW1GaZgEnOuGmtcWXTgZgzh3d+y0qmsSeOKS7dawa/cxrUPsU5JiAEY/yYhZBDmogqb5jEfGKIr+b3dkFrgYINEOy/7+u4KEUWgBo1trM482Hz6N8uYvb+YQjnf002mR7F/p6IaXtNY8Yjqfy0QNyw30Bf7tOH0aAougauEwM9MppuYDs3qwtmwEY9TyGOMWdSz5jIjAJBg5k/i1gzbmIEto7l7R/F4pv/f18hQzagdyZbb49VyD1CX1zscG6aCyJxWkLYZ+8hGRexWmvAee4cRrK3BF9CtjvV+7E2XjuhqUsDqw1M7LmgcVt1Klgrs5nta6eLTxW6KwXFgEFcmytTDc3T2IC1qqJ3ZGpVvvS6iYSjKvIe78Z7ufgdeysU1hlRRUYalRV9Vw2WhWgtKfKUnQKmq+O+4pzHUuaxWB4qSEh/tNIfqm7Ew4aZMsaAqBEWSzbLSYmjRd/Xmqc+g1L2/DnwSBLESS74EAFIuJTT7PQRoA7QZTZhTet6N1EL+wZGhLiSgtQ/fEN/zKHpmQLzlu7L2NIpSCOFVOHOR58p4Ke6PtNa8UvQGCPjUn2T2nZeGXnIpZfmF6Tl54Bkx4DgQ="
 android:
   components:
   - build-tools-29.0.2
@@ -14,6 +14,8 @@ before_deploy:
   - git config --global user.name "Travis CI"
   - export GIT_TAG=1.3.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git tag
+  - env
   - git push -q https://$TAGPERM@github.com/IIS-ZPI/ZPI2019_zaoczni_PIECIU_zamiast_300-stu --tags
 deploy:
   provider: releases
