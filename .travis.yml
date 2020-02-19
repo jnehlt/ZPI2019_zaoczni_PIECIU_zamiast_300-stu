@@ -22,8 +22,6 @@ deploy:
     secure: RleNFTgsBpmt5GrcqW3PtfAoEhqvjIdlxz1QaiH7F/+IcN4MDC8jYUfaL5FSMkc0I7GKysV0H4ja217CPElqAaKuQfTocWMCdYkUh4nbwL+TbKeVYBmFKkyVMKYcDaTf0OoW0C1EGUWQqphdj8TtUScFwq1N3mVPxAQOi45uF5H6rvnKmsawOat/4XvUvalfB+Q/H9UWemvyApfPfJyw8wddkE5VATW3Qku8/yoi5aQVnYnqouMnB2TVwIQBufU28YQQ703FVDEkkR9Vp4RNby6uUb8p8o5UJfZt/wdpx5ovunCiW4UQBjoy6QjS/6X4wV5qPuH+LZy4Ox3N3jZyUCfkq8UOk26DFMaK4SIhi5Rfqc+GOyXzJYEwNiXhyteCTYdla90kAGbc5xBRr/GVGnHqeOcsUeJbwa/b7pvUxWCUh4Sb7d1Kcdf022lwwppILe0r2RyXD55AnbmnQNU8Nv0fN/ImErjGZPEev+/dRFv2FQc2vMyheGWoSv4y+azN6dIRmwb2VUGcT8t+uG7hjRVkPEznXVc+CjFrPIoedguLwB0EXjK0cB4TwULaklwo7zX5EQNxPzVn8A7yUdrfhSLpl9EuWiSKADcjoUhVeYDaaMTGHM7vOAYspdjHTJaAgF6IqT3YakqquW5A6XOmaLduUbg+nnEM6apwIDpWXms=
   file: "./*.apk"
   skip_cleanup: true
-  on:
-    tags: true
 matrix:
   fast_finish: true
   include:
