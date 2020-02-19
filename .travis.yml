@@ -22,7 +22,7 @@ matrix:
   include:
   - name: DUMMY apk
     script:
-    - touch ./test.apk
+    - echo "testetestest" > ./test.apk
     - "./prepare_apk_name.sh"
     - "ls -la"
     - find -type f -name "*.apk"
